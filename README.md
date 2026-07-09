@@ -16,3 +16,4 @@ You can import the file in an edditing software that support EDL file, DavinciRe
 - Game End
 
 # YOU NEED AT LEAST YOUR RIOT CLIENT OPEN
+<img width="776" height="226" alt="image" src="https://github.com/user-attachments/assets/1f2a0cbd-8ae7-4e13-b32a-c2bc28837ec4" />
