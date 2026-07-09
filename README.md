@@ -1,14 +1,16 @@
 # ValorantEDL
-A simple python script that let you generate EDL Markers file for edditing software, and so edditing valorant clip faster
+A simple Python script that lets you generate EDL (Edit Decision List) marker files for video editing software, helping you edit your Valorant clips much faster.
+
+## Requirements
+- Python 3.9+ (and `pip` if you want to compile it into a standalone executable file).
 
 ## How to use it
-Python 3.14+ (+ pip if you want to do exe file)
-You can compile it into an exe file or just run it with strat.bat, inside you can select a Player and get the match history
+You can either run the script directly using `Start.bat`, or compile it into a standalone `.exe` file using `Compile.bat`. Once the web interface opens, it will automatically detect your local Riot Client or you can manually enter a Player's PUUID to fetch their match history.
 
 ## What to expect
-You can import the file in an edditing software that support EDL file, DavinciResolve for example. Then you will see in your timeline (Set the start time of the timeline at 00:00:00:00) the markers for :
-- Game start
-- Round start
+You can import the generated `.edl` file into any editing software that supports EDL formats (such as DaVinci Resolve or Premiere Pro). Make sure to set the start time of your timeline to `00:00:00:00`. You will then see markers automatically placed on your timeline for the following events:
+- Game Start
+- Round Start
 - Kills
 - Deaths
 - Assists
