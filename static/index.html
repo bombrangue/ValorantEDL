@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant EDL Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header>
+            <h1>VALORANT <span>EDL GENERATOR</span></h1>
+            <p>Generate precise DaVinci Resolve markers for your kills.</p>
+        </header>
+
+        <section class="auth-section card">
+            <div id="auth-status" class="status-message loading">
+                Checking local Riot Client status...
+            </div>
+            
+            <div class="input-group">
+                <label>Region (Shard)</label>
+                <div class="val-dropdown" id="region-dropdown">
+                    <div class="val-dropdown-selected">Europe (EU)</div>
+                    <div class="val-dropdown-options hidden">
+                        <div class="val-option" data-value="na">North America (NA)</div>
+                        <div class="val-option" data-value="na">Latin America (LATAM)</div>
+                        <div class="val-option" data-value="na">Brazil (BR)</div>
+                        <div class="val-option" data-value="eu">Europe (EU)</div>
+                        <div class="val-option" data-value="kr">Korea (KR)</div>
+                        <div class="val-option" data-value="ap">Asia Pacific (AP)</div>
+                    </div>
+                </div>
+                <input type="hidden" id="region-select" value="eu">
+            </div>
+
+            <div class="input-group">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.5rem;">
+                    <label for="puuid-input" style="margin-bottom: 0;">Player PUUID</label>
+                    <a href="https://c4ldas.com.br/valorant/puuid" target="_blank" style="color: var(--val-red); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-block; padding: 10px; margin: -10px 0 -10px -10px;">Find PUUID</a>
+                </div>
+                <input type="text" id="puuid-input" placeholder="Enter PUUID to fetch matches...">
+            </div>
+            
+            <button id="fetch-btn" class="btn primary">Fetch Matches</button>
+        </section>
+
+        <section class="matches-container hidden" id="matches-section">
+            <div class="section-header">
+                <h2>Recent Matches</h2>
+                <div class="fps-selector">
+                    <label>Recording FPS:</label>
+                    <div class="val-dropdown" id="fps-dropdown" style="min-width: 120px;">
+                        <div class="val-dropdown-selected">60 FPS</div>
+                        <div class="val-dropdown-options hidden">
+                            <div class="val-option" data-value="60">60 FPS</div>
+                            <div class="val-option" data-value="30">30 FPS</div>
+                            <div class="val-option" data-value="120">120 FPS</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="fps-select" value="60">
+                </div>
+            </div>
+            
+            <div class="filters" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <div class="val-dropdown filter-dropdown" id="filter-map-dropdown" style="flex: 1;">
+                    <div class="val-dropdown-selected">All Maps</div>
+                    <div class="val-dropdown-options hidden" id="filter-map-options">
+                        <div class="val-option" data-value="all">All Maps</div>
+                    </div>
+                </div>
+                <input type="hidden" id="filter-map" value="all">
+
+                <div class="val-dropdown filter-dropdown" id="filter-mode-dropdown" style="flex: 1;">
+                    <div class="val-dropdown-selected">All Modes</div>
+                    <div class="val-dropdown-options hidden" id="filter-mode-options">
+                        <div class="val-option" data-value="all">All Modes</div>
+                    </div>
+                </div>
+                <input type="hidden" id="filter-mode" value="all">
+
+                <div class="val-dropdown filter-dropdown" id="filter-agent-dropdown" style="flex: 1;">
+                    <div class="val-dropdown-selected">All Agents</div>
+                    <div class="val-dropdown-options hidden" id="filter-agent-options">
+                        <div class="val-option" data-value="all">All Agents</div>
+                    </div>
+                </div>
+                <input type="hidden" id="filter-agent" value="all">
+            </div>
+            
+            <div id="loading-spinner" class="spinner hidden"></div>
+            
+            <div class="matches-grid" id="matches-grid">
+                <!-- Match cards will be injected here -->
+            </div>
+            
+            <button id="load-more-btn" class="btn primary hidden" style="margin-top: 2rem; width: 100%;">Load More Matches</button>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
